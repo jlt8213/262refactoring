@@ -1,16 +1,4 @@
-/**
- * Timer.java
- *
- * Version:
- *    $Id: Timer.java,v 1.1 2002/10/22 21:12:53 se362 Exp $
- *
- * Revisions:
- *    $Log: Timer.java,v $
- *    Revision 1.1  2002/10/22 21:12:53  se362
- *    Initial creation of case study
- *
- */
-
+import java.util.ArrayList;
 /**
  *  This timer runs on the separate thread and during
  *  the simulation tells fasade to update the warning and normal times 
@@ -22,57 +10,67 @@
 
 public class Timer extends Thread{
 
-    private static int INTERVAL = 100;    
-    private int      interval;
-    private Notifier notifier;
+    private long timeLimit;
+    private long lastTurnSwap;
+    private boolean running;
+    private ArrayList<TimerObserver> observers;
+	
+    public Timer(long timeLimit){
+    	super();
+    	init(timeLimit, null);
+    }
     
-    /**
-     * This constaructor creates a new timer
-     */    
     public Timer(){
-	notifier = new Notifier( notifier.TIME_UPDATE );
-	interval = INTERVAL;
+    	super();
+    	init(30000L, null);
     }
     
-    /**
-     * This constructor creates a timer with an interval
-     *
-     * @param inter - the new interval
-     */
-    public Timer( int inter ){
-	notifier = new Notifier( notifier.TIME_UPDATE );
-	interval = inter;
+    public Timer(TimerObserver initialTimerObserver){
+    	super();
+    	init(30000L, initialTimerObserver);
     }
     
-    /**
-     * This method is what executes then the thread
-     * has been started
-     * 
-     * @roseuid 3C5AE02D03DE
-     */
-    public void run() {
-	// Start the timer thread 
-	// Notify the facade every interval
-	while ( true ) {
-	    try {
-		sleep( interval );
-	    }
-	    catch ( InterruptedException e ) {
-		System.err.println( "The timer malfunctioned." );
-	    }
-	    
-	    notifier.generateActionPerformed();
-	}
+    public Timer(long timeLimit, TimerObserver initialTimerObserver){
+    	super();
+    	init(timeLimit, initialTimerObserver);
     }
     
-    /**
-     * Get the notifier.
-     * 
-     * @return Notifier
-     * @roseuid 3C5AE4FD00C1
-     */
-    public Notifier getNotifier(){
-	return notifier;
+    private void init(long timeLimit, TimerObserver initialTimerObserver){
+    	this.timeLimit = timeLimit;
+    	this.observers = new ArrayList<TimerObserver>(1);
+    	if(initialTimerObserver != null){
+    		this.observers.add(initialTimerObserver);
+    	}
+    }
+    
+    public void addTimerObserver(TimerObserver newTimerObserver){
+    	this.observers.add(newTimerObserver);
+    }
+    
+    public void stopRunning(){
+    	this.running = false;
+    }
+    
+    @Override
+    public void run(){
+    	lastTurnSwap = System.currentTimeMillis();
+    	running = true;
+    	while(running){
+    		if((System.currentTimeMillis() - lastTurnSwap) > timeLimit){
+    			for(TimerObserver to : observers){
+    				to.notifyTimeUp();
+    			}
+    			lastTurnSwap = System.currentTimeMillis();
+    		}
+    		for(TimerObserver to : observers){
+				to.notifyUpdateTime((int)((timeLimit-(System.currentTimeMillis() - lastTurnSwap))%1000));
+			}
+    		try {
+				sleep(750);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+    	}
     }
     
 }// Timer.java

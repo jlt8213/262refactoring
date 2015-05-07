@@ -36,15 +36,15 @@ class PlayCheckers{
 	*@param args[] the command line arguments
 	* 
 	*/
-	
+
     public static void main( String args[] ){
-	
-	
-	Driver theDriver = new Driver();
-	
-	Firstscreen first = new Firstscreen( theDriver.getFacade() );
-	first.show();
-	
+
+        Driver theDriver = new Driver();
+
+
+        new MainWindow( theDriver.getFacade() );
+
+        //Firstscreen first = new Firstscreen( theDriver.getFacade() );
     }
-    
+
 }//PlayCheckers

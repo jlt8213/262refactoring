@@ -451,4 +451,21 @@ public class GameGUI extends Container implements ActionListener{
 
     }//checkEndConditions
 
+    @Deprecated
+    @Override
+	public void update(Observable arg0, Object arg1) {
+        //pass
+	}
+
+
+	@Override
+	public void notifyTimeUp() {
+		theFacade.endGameAccepted();
+	}
+	
+	@Override
+	synchronized public void notifyUpdateTime(int newTimeLeft) {
+		timeRemainingLabel.setText(Integer.toString(newTimeLeft));		
+	}
+
 }

@@ -14,7 +14,7 @@ import java.net.*;
  * @version
  */
 
-public class GameGUI extends Container implements ActionListener{
+public class GameGUI extends Container implements ActionListener, TimerObserver{
 
     //the facade for the game
 

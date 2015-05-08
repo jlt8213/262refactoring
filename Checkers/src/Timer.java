@@ -75,4 +75,8 @@ public class Timer extends Thread{
     	}
     }
     
+    public void reset(){
+        lastTurnSwap = System.currentTimeMillis();
+    }
+    
 }// Timer.java

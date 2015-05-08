@@ -226,11 +226,11 @@ public class GameGUI extends Container implements ActionListener, TimerObserver{
                 //if its a player switch event
                 if ( (e.getActionCommand()).equals(theFacade.playerSwitch) ) {
                     //set a new time
-                    timeRemaining = theFacade.getTimer();
+                    timer.reset();
                     //if it is an update event
                 } else if ( (e.getActionCommand()).equals(theFacade.update) ) {
                     //update the GUI
-                    update();
+                    //update();
                 } else {
                     throw new Exception( "unknown message from facade" );
                 }

@@ -79,7 +79,6 @@ public class GameGUI extends Container implements ActionListener, TimerObserver{
     /*
      * This method handles setting up the timer
      */
-
     private void register() {
 
         try{
@@ -376,41 +375,6 @@ public class GameGUI extends Container implements ActionListener, TimerObserver{
     }
 
     /**
-     *
-     * Update the timer
-     *
-     */
-
-    public void updateTime() {
-/*
-        if ( theFacade.getTimer() > 0 ) {
-
-            // if the time has run out but not in warning time yet
-            // display warning and count warning time
-            if ( timeRemaining <= 0 && ( warningLabel.getText() ).equals( "" ) ) {
-                timeRemaining = theFacade.getTimerWarning();
-                warningLabel.setText( "Time is running out!!!" );
-
-                // if the time has run out and it was in warning time quit game
-            } else if ( timeRemaining <= 0 &&
-                    !( warningLabel.getText() ).equals( "" ) ) {
-
-                theFacade.pressQuit();
-
-            } else {
-
-                timeRemaining--;
-
-            }
-
-            secondsLeftLabel.setText( timeRemaining + " sec." );
-
-        } else {
-            secondsLeftLabel.setText( "*****" );
-        }*/
-    }
-
-    /**
      * Checks the ending condotions for the game
      * see if there a no pieces left
      *
@@ -466,7 +430,6 @@ public class GameGUI extends Container implements ActionListener, TimerObserver{
 	public void update(Observable arg0, Object arg1) {
         //pass
 	}
-
 
 	@Override
 	public void notifyTimeUp() {

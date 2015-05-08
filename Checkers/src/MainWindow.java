@@ -19,7 +19,7 @@ public class MainWindow {
     public void createWindow(){
         checkersWindow = new JFrame("Play Checkers!");
         checkersWindow.setLayout(new FlowLayout());
-        checkersWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        checkersWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         checkersWindow.setResizable(false);
         nextView(checkersFacade);
         checkersWindow.setVisible(true);

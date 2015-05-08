@@ -18,7 +18,6 @@ public class GUIFactory {
                 break;
             default:
                 System.err.println("Only 3 views exist!");
-                //at the moment this goes back to the first GUI
                 newView = new StartGUI(facade);
                 break;
         }

@@ -15,7 +15,7 @@ public class Timer extends Thread{
     private boolean running;
     private ArrayList<TimerObserver> observers;
 	
-    public Timer(long timeLimit){
+	public Timer(long timeLimit){
     	super();
     	init(timeLimit, null);
     }

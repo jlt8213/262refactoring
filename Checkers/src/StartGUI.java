@@ -1,24 +1,11 @@
-/*
- * Firstscreen.java
- *
- *  * Version:
- *   $Id: Firstscreen.java,v 1.1 2002/10/22 21:12:52 se362 Exp $
- *
- * Revisions:
- *   $Log: Firstscreen.java,v $
- *   Revision 1.1  2002/10/22 21:12:52  se362
- *   Initial creation of case study
- *
- */
 import java.net.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
 /**
- *
- * @author
- * @version
+ * StartGUI.java
+ * @author jlt8213
  */
 
 public class StartGUI extends Container implements ActionListener{
@@ -200,13 +187,7 @@ public class StartGUI extends Container implements ActionListener{
                     theFacade.createPlayer( 1, theFacade.HOSTGAME );
                     theFacade.createPlayer( 2, theFacade.HOSTGAME );
 
-                    //hide the Firstscreen, make the Secondscreen and show it
                     MainWindow.nextView(theFacade);
-                    /*
-                    this.hide();
-                    next = new Secondscreen( theFacade, this, theFacade.HOSTGAME );
-                    next.show();
-                    */
                     //if the join game button is selected
                 } else if( tempButton.getActionCommand().equals( "join" ) ){
 
@@ -226,10 +207,6 @@ public class StartGUI extends Container implements ActionListener{
 
                         //hide the Firstscreen, make and show the Second screen
                         MainWindow.nextView(theFacade);
-                        /*
-                        this.hide();
-                        next = new Secondscreen( theFacade, this, theFacade.CLIENTGAME );
-                        next.show();*/
 
                         //catch any exceptions
                     } catch ( MalformedURLException x ) {
@@ -239,7 +216,6 @@ public class StartGUI extends Container implements ActionListener{
                                 JOptionPane.INFORMATION_MESSAGE );
                     }//end of networking catch statement
 
-                    //set up to connect to another person
                 }
 
 

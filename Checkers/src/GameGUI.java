@@ -21,71 +21,6 @@ public class GameGUI extends Container implements ActionListener{
     private static Facade theFacade; //the facade
     private Vector possibleSquares = new Vector();//a vector of the squares
     private int timeRemaining;//the time remaining
-
-    private JButton jButton1;
-    private JButton jButton2;
-    private JButton jButton3;
-    private JButton jButton4;
-    private JButton jButton5;
-    private JButton jButton6;
-    private JButton jButton7;
-    private JButton jButton8;
-    private JButton jButton9;
-    private JButton jButton10;
-    private JButton jButton11;
-    private JButton jButton12;
-    private JButton jButton13;
-    private JButton jButton14;
-    private JButton jButton15;
-    private JButton jButton16;
-    private JButton jButton17;
-    private JButton jButton18;
-    private JButton jButton19;
-    private JButton jButton20;
-    private JButton jButton21;
-    private JButton jButton22;
-    private JButton jButton23;
-    private JButton jButton24;
-    private JButton jButton25;
-    private JButton jButton26;
-    private JButton jButton27;
-    private JButton jButton28;
-    private JButton jButton29;
-    private JButton jButton30;
-    private JButton jButton31;
-    private JButton jButton32;
-    private JButton jButton33;
-    private JButton jButton34;
-    private JButton jButton35;
-    private JButton jButton36;
-    private JButton jButton37;
-    private JButton jButton38;
-    private JButton jButton39;
-    private JButton jButton40;
-    private JButton jButton41;
-    private JButton jButton42;
-    private JButton jButton43;
-    private JButton jButton44;
-    private JButton jButton45;
-    private JButton jButton46;
-    private JButton jButton47;
-    private JButton jButton48;
-    private JButton jButton49;
-    private JButton jButton50;
-    private JButton jButton51;
-    private JButton jButton52;
-    private JButton jButton53;
-    private JButton jButton54;
-    private JButton jButton55;
-    private JButton jButton56;
-    private JButton jButton57;
-    private JButton jButton58;
-    private JButton jButton59;
-    private JButton jButton60;
-    private JButton jButton61;
-    private JButton jButton62;
-    private JButton jButton63;
-    private JButton jButton64;
     private ArrayList<JButton> buttons;
     private JLabel PlayerOnelabel;
     private JLabel playerTwoLabel;
@@ -266,47 +201,8 @@ public class GameGUI extends Container implements ActionListener{
      */
 
     public void actionPerformed( ActionEvent e ) {
-
         try{
-            //if a square gets clicked
-            if( e.getActionCommand().equals(  "1" ) ||
-                    e.getActionCommand().equals(  "3" ) ||
-                    e.getActionCommand().equals(  "5" ) ||
-                    e.getActionCommand().equals(  "7" ) ||
-                    e.getActionCommand().equals(  "8" ) ||
-                    e.getActionCommand().equals( "10" ) ||
-                    e.getActionCommand().equals( "12" ) ||
-                    e.getActionCommand().equals( "14" ) ||
-                    e.getActionCommand().equals( "17" ) ||
-                    e.getActionCommand().equals( "19" ) ||
-                    e.getActionCommand().equals( "21" ) ||
-                    e.getActionCommand().equals( "23" ) ||
-                    e.getActionCommand().equals( "24" ) ||
-                    e.getActionCommand().equals( "26" ) ||
-                    e.getActionCommand().equals( "28" ) ||
-                    e.getActionCommand().equals( "30" ) ||
-                    e.getActionCommand().equals( "33" ) ||
-                    e.getActionCommand().equals( "35" ) ||
-                    e.getActionCommand().equals( "37" ) ||
-                    e.getActionCommand().equals( "39" ) ||
-                    e.getActionCommand().equals( "40" ) ||
-                    e.getActionCommand().equals( "42" ) ||
-                    e.getActionCommand().equals( "44" ) ||
-                    e.getActionCommand().equals( "46" ) ||
-                    e.getActionCommand().equals( "49" ) ||
-                    e.getActionCommand().equals( "51" ) ||
-                    e.getActionCommand().equals( "53" ) ||
-                    e.getActionCommand().equals( "55" ) ||
-                    e.getActionCommand().equals( "56" ) ||
-                    e.getActionCommand().equals( "58" ) ||
-                    e.getActionCommand().equals( "60" ) ||
-                    e.getActionCommand().equals( "62" ) ) {
-
-                //call selectSpace with the button pressed
-                theFacade.selectSpace( Integer.parseInt( e.getActionCommand() ) );
-
-                //if draw is pressed
-            }else if( e.getActionCommand().equals( "draw" ) ){
+            if( e.getActionCommand().equals( "draw" ) ){
                 //does sequence of events for a draw
                 theFacade.pressDraw();
 
@@ -330,8 +226,28 @@ public class GameGUI extends Container implements ActionListener{
                     throw new Exception( "unknown message from facade" );
                 }
             }
-            //catch various Exceptions
+            else {
+                ArrayList<Boolean> valids = new ArrayList<Boolean>();
+                boolean result = true;
+                for (int i = 1; i < 65; i++) {
+                    if (i % 8 == 0)
+                        result = !result;
+                    if (i % 2 == 1)
+                        valids.add(result);
+                    else {
+                        valids.add(!result);
+                    }
+                }
+                //if a valid square gets clicked
+                int inputSpace = Integer.parseInt(e.getActionCommand());
+
+                if (valids.get(inputSpace - 1)) {
+                    //call selectSpace with the button pressed
+                    theFacade.selectSpace(Integer.parseInt(e.getActionCommand()));
+                }
+            }
         }catch( NumberFormatException excep ){
+            System.out.println(excep.toString());
             System.err.println(
                     "GUI exception: Error converting a string to a number" );
         }catch( NullPointerException exception ){
@@ -356,9 +272,7 @@ public class GameGUI extends Container implements ActionListener{
 
     private void update(){
 
-
         if( checkEndConditions() ){
-
             theFacade.showEndGame(" ");
         }
         //the board to read information from

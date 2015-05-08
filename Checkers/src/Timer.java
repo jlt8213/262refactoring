@@ -55,10 +55,12 @@ public class Timer extends Thread{
     public void run(){
     	lastTurnSwap = System.currentTimeMillis();
     	running = true;
-    	while(running){
+    	TimerLoop:while(running){
     		if((System.currentTimeMillis() - lastTurnSwap) > timeLimit){
     			for(TimerObserver to : observers){
     				to.notifyTimeUp();
+    				running = false;
+    				break TimerLoop;
     			}
     			lastTurnSwap = System.currentTimeMillis();
     		}

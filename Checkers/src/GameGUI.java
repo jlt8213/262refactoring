@@ -94,6 +94,8 @@ public class GameGUI extends Container implements ActionListener{
     private JButton ResignButton;
     private JButton DrawButton;
     private JLabel warningLabel, whosTurnLabel;
+    
+    private Timer timer;
 
     //the names and time left
     private static String playerOnesName="", playerTwosName="", timeLeft="";
@@ -132,6 +134,8 @@ public class GameGUI extends Container implements ActionListener{
 
         initComponents ();
         update();
+        
+        timer.run();
     }
 
 
@@ -256,6 +260,7 @@ public class GameGUI extends Container implements ActionListener{
         gridBagConstraints1.gridy = 6;
         this.add(DrawButton, gridBagConstraints1);
 
+        timer = new Timer(theFacade.getTimer(), this);
     }
 
 

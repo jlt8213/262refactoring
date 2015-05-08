@@ -38,26 +38,23 @@ public class SettingsGUI extends Container  implements ActionListener{
 
     private void initComponents() {
 
-        timedGameBox = new Checkbox();
-        playerOneLabel = new JLabel();
-        playerTwoLabel = new JLabel();
-        playerOneField = new JTextField();
-        playerTwoField = new JTextField();
-        turnLengthLabel = new JLabel();
+        timedGameBox = new Checkbox("Timed game");
+        playerOneLabel = new JLabel("Player 1:");
+        playerTwoLabel = new JLabel("Player 2:");
+        playerOneField = new JTextField("Enter name");
+        playerTwoField = new JTextField("Enter name");
         WarningLengthLabel = new JLabel();
         okButton = new JButton();
         cancelButton = new JButton();
         turnLengthField = new JSlider( 10, 300, 120 );
+        turnLengthLabel = new JLabel("Turn Length ( " + turnLengthField.getValue() + " seconds )");
         warningLengthField = new JSlider( 10, 300, 120 );
         this.setLayout(new GridBagLayout());
         GridBagConstraints gridBagConstraints1;
 
 
-
-        timedGameBox.setBackground(new Color (204, 204, 204));
+        timedGameBox.setBackground(new Color(204, 204, 204));
         timedGameBox.setName("timedGameBox");
-        timedGameBox.setForeground(Color.black);
-        timedGameBox.setLabel("Timed game");
         timedGameBox.setState( true );
 
         gridBagConstraints1 = new GridBagConstraints();
@@ -71,9 +68,7 @@ public class SettingsGUI extends Container  implements ActionListener{
 
 
         playerOneLabel.setName("playerOneLabel");
-        playerOneLabel.setBackground(new Color (204, 204, 204));
-        playerOneLabel.setForeground(Color.black);
-        playerOneLabel.setText("Player 1:");
+        playerOneLabel.setBackground(new Color(204, 204, 204));
 
         gridBagConstraints1 = new GridBagConstraints();
         gridBagConstraints1.gridx = 0;
@@ -83,9 +78,8 @@ public class SettingsGUI extends Container  implements ActionListener{
         this.add(playerOneLabel, gridBagConstraints1);
 
         playerTwoLabel.setName("playerTwoLabel");
-        playerTwoLabel.setBackground(new Color (204, 204, 204));
+        playerTwoLabel.setBackground(new Color(204, 204, 204));
         playerTwoLabel.setForeground(Color.black);
-        playerTwoLabel.setText("Player 2:");
 
         gridBagConstraints1 = new GridBagConstraints();
         gridBagConstraints1.gridx = 0;
@@ -97,7 +91,6 @@ public class SettingsGUI extends Container  implements ActionListener{
         playerOneField.setBackground(Color.white);
         playerOneField.setName("textfield1");
         playerOneField.setForeground(Color.black);
-        playerOneField.setText("Enter name");
 
         gridBagConstraints1 = new GridBagConstraints();
         gridBagConstraints1.gridx = 1;
@@ -109,7 +102,6 @@ public class SettingsGUI extends Container  implements ActionListener{
         playerTwoField.setBackground(Color.white);
         playerTwoField.setName("textfield2");
         playerTwoField.setForeground(Color.black);
-        playerTwoField.setText("Enter name");
 
         gridBagConstraints1 = new GridBagConstraints();
         gridBagConstraints1.gridx = 1;
@@ -121,7 +113,6 @@ public class SettingsGUI extends Container  implements ActionListener{
         turnLengthLabel.setName("label3");
         turnLengthLabel.setBackground(new Color (204, 204, 204));
         turnLengthLabel.setForeground(Color.black);
-        turnLengthLabel.setText("Turn Length ( " + turnLengthField.getValue() + " seconds )");
 
         gridBagConstraints1 = new GridBagConstraints();
         gridBagConstraints1.gridx = 0;
@@ -221,7 +212,7 @@ public class SettingsGUI extends Container  implements ActionListener{
      * This takes care of when an action takes place. It will check the
      * action command of all components and then deicde what needs to be done.
      *
-     * @param the event fired
+     * @param e the event fired
      */
 
     public void actionPerformed( ActionEvent e ){

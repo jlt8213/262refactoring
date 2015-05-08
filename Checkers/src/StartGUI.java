@@ -61,15 +61,15 @@ public class StartGUI extends Container implements ActionListener{
 
     private void initComponents() {
 
-        LocalGameButton = new JRadioButton();
-        HostGameButton = new JRadioButton();
-        JoinGameButton = new JRadioButton();
+        LocalGameButton = new JRadioButton("Local game");
+        HostGameButton = new JRadioButton("Host game");
+        JoinGameButton = new JRadioButton("Join game");
         gameModes = new ButtonGroup();
-        IPField = new JTextField();
-        IPLabel = new JLabel();
-        OKButton = new JButton();
-        CancelButton = new JButton();
-        IPExampleLabel = new JLabel();
+        IPField = new JTextField("IP address goes here");
+        IPLabel = new JLabel("IP address:");
+        OKButton = new JButton("OK");
+        CancelButton = new JButton("Cancel");
+        IPExampleLabel = new JLabel("Ex: 123.456.789.123");
         this.setLayout(new java.awt.GridBagLayout());
         java.awt.GridBagConstraints gridBagConstraints1;
 
@@ -78,7 +78,6 @@ public class StartGUI extends Container implements ActionListener{
         gameModes.add(JoinGameButton);
 
         LocalGameButton.setActionCommand("local");
-        LocalGameButton.setText("Local game");
         LocalGameButton.addActionListener(this);
         LocalGameButton.setSelected( true );
 
@@ -89,7 +88,6 @@ public class StartGUI extends Container implements ActionListener{
 
 
         HostGameButton.setActionCommand("host");
-        HostGameButton.setText("Host game");
         HostGameButton.addActionListener(this);
 
         gridBagConstraints1 = new GridBagConstraints();
@@ -99,7 +97,6 @@ public class StartGUI extends Container implements ActionListener{
 
 
         JoinGameButton.setActionCommand("join");
-        JoinGameButton.setText("Join game");
         JoinGameButton.addActionListener(this);
 
         gridBagConstraints1 = new java.awt.GridBagConstraints();
@@ -108,10 +105,8 @@ public class StartGUI extends Container implements ActionListener{
         this.add(JoinGameButton, gridBagConstraints1);
 
 
-        IPField.setBackground( Color.white );
+        IPField.setBackground(Color.white );
         IPField.setName("textfield5");
-        IPField.setForeground( Color.black);
-        IPField.setText("IP address goes here");
         IPField.setEnabled( false );
         IPField.addActionListener(this);
 
@@ -122,19 +117,15 @@ public class StartGUI extends Container implements ActionListener{
 
         IPLabel.setName("label10");
         IPLabel.setBackground(new Color (204, 204, 204));
-        IPLabel.setForeground(Color.black);
-        IPLabel.setText("IP address:");
 
         gridBagConstraints1 = new GridBagConstraints();
         gridBagConstraints1.gridx = 1;
         gridBagConstraints1.gridy = 3;
         this.add(IPLabel, gridBagConstraints1);
 
-        OKButton.setText("OK");
         OKButton.setActionCommand("ok");
         OKButton.setName("button6");
         OKButton.setBackground(new Color (212, 208, 200));
-        OKButton.setForeground(Color.black);
         OKButton.addActionListener(this);
 
         gridBagConstraints1 = new GridBagConstraints();
@@ -143,11 +134,9 @@ public class StartGUI extends Container implements ActionListener{
         gridBagConstraints1.insets = new Insets(30, 0, 0, 0);
         this.add(OKButton, gridBagConstraints1);
 
-        CancelButton.setText("Cancel");
         CancelButton.setActionCommand("cancel");
         CancelButton.setName("button7");
         CancelButton.setBackground(new Color (212, 208, 200));
-        CancelButton.setForeground(Color.black);
         CancelButton.addActionListener(this);
 
         gridBagConstraints1 = new GridBagConstraints();
@@ -158,14 +147,11 @@ public class StartGUI extends Container implements ActionListener{
 
         IPExampleLabel.setName("label11");
         IPExampleLabel.setBackground(new Color (204, 204, 204));
-        IPExampleLabel.setForeground(Color.black);
-        IPExampleLabel.setText("Ex: 123.456.789.123");
 
         gridBagConstraints1 = new GridBagConstraints();
         gridBagConstraints1.gridx = 2;
         gridBagConstraints1.gridy = 4;
         this.add(IPExampleLabel, gridBagConstraints1);
-
 
     }
 

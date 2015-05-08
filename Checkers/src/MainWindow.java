@@ -27,12 +27,12 @@ public class MainWindow {
 
     public static void nextView(Facade facade){
         checkersWindow.getContentPane().removeAll();
-        checkersWindow.getContentPane().add(GUIFactory.makeView(viewNum++, facade));
+        checkersWindow.getContentPane().add(GUIFactory.makeView(++viewNum, facade));
         checkersWindow.pack();
     }
     public static void prevView(Facade facade){
         checkersWindow.getContentPane().removeAll();
-        checkersWindow.getContentPane().add(GUIFactory.makeView(viewNum--, facade));
+        checkersWindow.getContentPane().add(GUIFactory.makeView(--viewNum, facade));
         checkersWindow.pack();
     }
 

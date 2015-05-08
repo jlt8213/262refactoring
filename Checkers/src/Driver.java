@@ -423,7 +423,7 @@ public class Driver {
 	Notifier timer = null;
 	
 	if ( theTimer != null ) {
-	    timer = theTimer.getNotifier();
+	    //timer = theTimer.getNotifier();
 	}
 	
 	return timer;

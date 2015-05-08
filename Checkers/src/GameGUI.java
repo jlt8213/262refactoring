@@ -195,16 +195,15 @@ public class GameGUI extends Container implements ActionListener{
         whosTurnLabel = new JLabel();
 
         warningLabel = new JLabel( );
-        timeRemainingLabel = new JLabel();
-        secondsLeftLabel = new JLabel();
+        timeRemainingLabel = new JLabel("Time Remaining:");
+        secondsLeftLabel = new JLabel( timeLeft + " sec.");
 
-        ResignButton = new JButton();
+        ResignButton = new JButton("Resign");
         ResignButton.addActionListener( this );
 
-        DrawButton = new JButton();
+        DrawButton = new JButton("Draw");
         DrawButton.addActionListener(this);
 
-        PlayerOnelabel.setForeground( Color.black );
 
         gridBagConstraints1 = new java.awt.GridBagConstraints();
         gridBagConstraints1.gridx = 2;
@@ -212,7 +211,6 @@ public class GameGUI extends Container implements ActionListener{
         gridBagConstraints1.gridwidth = 4;
         this.add(PlayerOnelabel, gridBagConstraints1);
 
-        playerTwoLabel.setForeground( Color.black );
 
         gridBagConstraints1 = new java.awt.GridBagConstraints();
         gridBagConstraints1.gridx = 2;
@@ -224,7 +222,7 @@ public class GameGUI extends Container implements ActionListener{
         whosTurnLabel.setForeground( new Color( 0, 100 , 0 ) );
 
         gridBagConstraints1.gridx=8;
-        gridBagConstraints1.gridy=1;
+        gridBagConstraints1.gridy= 1;
         this.add(whosTurnLabel, gridBagConstraints1 );
 
         warningLabel.setText( "" );
@@ -232,18 +230,12 @@ public class GameGUI extends Container implements ActionListener{
 
         gridBagConstraints1.gridx = 8;
         gridBagConstraints1.gridy = 2;
-        this.add( warningLabel, gridBagConstraints1 );
-
-        timeRemainingLabel.setText("Time Remaining:");
-        timeRemainingLabel.setForeground( Color.black );
+        this.add(warningLabel, gridBagConstraints1 );
 
         gridBagConstraints1 = new java.awt.GridBagConstraints();
         gridBagConstraints1.gridx = 8;
         gridBagConstraints1.gridy = 3;
         this.add(timeRemainingLabel, gridBagConstraints1);
-
-        secondsLeftLabel.setText( timeLeft + " sec.");
-        secondsLeftLabel.setForeground( Color.black );
 
         gridBagConstraints1 = new java.awt.GridBagConstraints();
         gridBagConstraints1.gridx = 8;
@@ -251,7 +243,6 @@ public class GameGUI extends Container implements ActionListener{
         this.add(secondsLeftLabel, gridBagConstraints1);
 
         ResignButton.setActionCommand("resign");
-        ResignButton.setText("Resign");
 
         gridBagConstraints1 = new java.awt.GridBagConstraints();
         gridBagConstraints1.gridx = 8;
@@ -259,7 +250,6 @@ public class GameGUI extends Container implements ActionListener{
         this.add(ResignButton, gridBagConstraints1);
 
         DrawButton.setActionCommand("draw");
-        DrawButton.setText("Draw");
 
         gridBagConstraints1 = new java.awt.GridBagConstraints();
         gridBagConstraints1.gridx = 8;

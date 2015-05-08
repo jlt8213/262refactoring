@@ -1,5 +1,3 @@
-import sun.applet.Main;
-
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;

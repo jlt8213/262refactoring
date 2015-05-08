@@ -330,7 +330,7 @@ public class Facade extends Component {
 	}
 
 	// Returns the timer value (clas variable: time )
-	return retval;
+	return retval * 1000;
     }
     
     /**

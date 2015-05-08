@@ -65,10 +65,10 @@ public class Timer extends Thread{
     			lastTurnSwap = System.currentTimeMillis();
     		}
     		for(TimerObserver to : observers){
-				to.notifyUpdateTime((int)((timeLimit-(System.currentTimeMillis() - lastTurnSwap))%1000));
+				to.notifyUpdateTime((int)((timeLimit-(System.currentTimeMillis() - lastTurnSwap))/1000));
 			}
     		try {
-				sleep(750);
+				sleep(50);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

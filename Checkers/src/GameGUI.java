@@ -71,7 +71,7 @@ public class GameGUI extends Container implements ActionListener, TimerObserver{
         update();
         
         if(timer != null){
-            timer.run();
+            timer.start();
         }
     }
 
@@ -382,7 +382,7 @@ public class GameGUI extends Container implements ActionListener, TimerObserver{
      */
 
     public void updateTime() {
-
+/*
         if ( theFacade.getTimer() > 0 ) {
 
             // if the time has run out but not in warning time yet
@@ -407,7 +407,7 @@ public class GameGUI extends Container implements ActionListener, TimerObserver{
 
         } else {
             secondsLeftLabel.setText( "*****" );
-        }
+        }*/
     }
 
     /**
@@ -470,7 +470,7 @@ public class GameGUI extends Container implements ActionListener, TimerObserver{
 
 	@Override
 	public void notifyTimeUp() {
-		theFacade.endGameAccepted();
+        theFacade.pressQuit();
 	}
 	
 	@Override

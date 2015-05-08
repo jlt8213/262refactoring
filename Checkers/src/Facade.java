@@ -42,7 +42,7 @@ public class Facade extends Component {
     private int endSpace   = 99; // Ending space for current move
     
     // The numbers associated with the timer
-    private int timer       = 999;
+    private int timer       = 999000;
     private int warningTime = 999;
     
     private ActionListener actionListener;
@@ -144,6 +144,9 @@ public class Facade extends Component {
 	    // Takes the information of a move and calls makeMove() 
 	    // in a localPlayer
 	    boolean result = activePlayer.makeMove( startSpace, endSpace );
+	    if(result){
+	        generateActionPerformed(playerSwitch);
+	    }
 	}
 	
 	// Reset startSpace and endSpace to 99

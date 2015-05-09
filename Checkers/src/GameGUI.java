@@ -230,7 +230,7 @@ public class GameGUI extends Container implements ActionListener, TimerObserver{
                     //if it is an update event
                 } else if ( (e.getActionCommand()).equals(theFacade.update) ) {
                     //update the GUI
-                    //update();
+                    update();
                 } else {
                     throw new Exception( "unknown message from facade" );
                 }

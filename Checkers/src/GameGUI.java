@@ -421,6 +421,9 @@ public class GameGUI extends Container implements ActionListener, TimerObserver{
             System.err.println(e.getMessage() );
 
         }
+        if(retVal){
+        	timer.stopRunning();
+        }
         return retVal;
 
     }//checkEndConditions
